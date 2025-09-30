@@ -1,43 +1,47 @@
-# Astro Starter Kit: Minimal
+# Lanturn.dev Marketing Site
 
-```sh
-npm create astro@latest -- --template minimal
+A SaaS landing page for the Lanturn.dev platform, built with [Astro](https://astro.build/) and styled using Tailwind CSS design tokens. The site introduces Lanturn.dev's suite of developer productivity tools with an initial focus on "Incident Response".
+
+## 🧰 Tech stack
+
+- [Astro](https://astro.build/) for static site generation
+- [Tailwind CSS](https://tailwindcss.com/) with custom design tokens for consistent styling
+- GitHub Actions + Cloudflare Pages for automated deployments
+
+## 🚀 Getting started
+
+Install dependencies and start the development server:
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Astro serves the site on [http://localhost:4321](http://localhost:4321) by default.
 
-## 🚀 Project Structure
+### Building for production
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The compiled site is output to the `dist/` directory.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## ☁️ Deploying to Cloudflare Pages
 
-Any static assets, like images, can be placed in the `public/` directory.
+This repository includes a GitHub Actions workflow that builds the site and publishes it to Cloudflare Pages on every push to `main` (or when triggered manually).
 
-## 🧞 Commands
+To enable deployments:
 
-All commands are run from the root of the project, from a terminal:
+1. Create a Cloudflare Pages project configured for a static site.
+2. Add the following GitHub repository secrets:
+   - `CLOUDFLARE_API_TOKEN` – Pages Deployments token with "Edit Cloudflare Pages" permissions.
+   - `CLOUDFLARE_ACCOUNT_ID` – Your Cloudflare account ID.
+   - `CLOUDFLARE_PROJECT_NAME` – The Cloudflare Pages project name.
+3. Push to `main` or trigger the **Deploy to Cloudflare Pages** workflow via the Actions tab.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+The workflow builds the Astro site and uploads the `dist/` directory to Cloudflare Pages.
 
-## 👀 Want to learn more?
+## 📄 License
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+© 2025 Bit Zesty Ltd. Trading as Lanturn.dev. All rights reserved.
