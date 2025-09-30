@@ -1,16 +1,422 @@
 ---
+import '../styles/global.css';
 
+const navLinks = [
+  { name: 'Product', href: '#incident-response' },
+  { name: 'Workflow', href: '#workflow' },
+  { name: 'Pricing', href: '#pricing' },
+  { name: 'FAQ', href: '#faq' },
+];
+
+const stats = [
+  { label: 'Time to mobilise', value: '< 2 mins' },
+  { label: 'Mean time to resolve', value: '-37%' },
+  { label: 'Engineering focus reclaimed', value: '18 hrs/week' },
+];
+
+const benefits = [
+  {
+    title: 'Centralised command for every incident',
+    description:
+      'Coordinate responders, track progress, and automate rituals from first alert to resolved postmortem in a single shared timeline.',
+  },
+  {
+    title: 'Deep developer context',
+    description:
+      'Enrich incidents with live service metadata, runbooks, and ownership automatically so the right people can act without searching.',
+  },
+  {
+    title: 'Accelerated recovery time',
+    description:
+      'Codify battle-tested playbooks that keep teams focused, compliant, and ready to recover faster with every learning.',
+  },
+];
+
+const workflow = [
+  {
+    title: 'Detect & declare',
+    description:
+      'Connect observability, paging, and chat tools so alerts auto-create structured incident rooms with the right severity and stakeholders.',
+  },
+  {
+    title: 'Orchestrate the response',
+    description:
+      'Guide responders with dynamic checklists, action item tracking, and automated status updates for leadership and customers.',
+  },
+  {
+    title: 'Reflect & improve',
+    description:
+      'Generate post-incident reports, surface patterns across incidents, and feed learnings directly into onboarding and runbooks.',
+  },
+];
+
+const incidentPlaybook = [
+  'Severity-aware playbooks and templates',
+  'Unified timeline across chat, tickets, and deployments',
+  'On-call handovers with full context',
+  'Automated stakeholder and customer updates',
+  'Post-incident insights that improve every sprint',
+];
+
+const upcomingTools = [
+  { name: 'Onboarding', description: 'Ramp new engineers with living runbooks and embedded rituals.' },
+  { name: 'Code Review', description: 'Codify standards and surface system context in every review.' },
+  { name: 'On Call', description: 'Plan rotations, track fatigue, and keep responders ready.' },
+  { name: 'Status Pages', description: 'Transparent, programmable comms for every customer touchpoint.' },
+];
+
+const faqs = [
+  {
+    question: 'Who is Lanturn.dev for?',
+    answer:
+      'Lanturn.dev is built for CTOs and platform leaders who need a cohesive toolkit that scales from their first incident to a global operation without duct tape between tools.',
+  },
+  {
+    question: 'How does the beta work?',
+    answer:
+      'We partner closely with each beta team to integrate with your stack, migrate existing playbooks, and iterate on features that unlock measurable response improvements.',
+  },
+  {
+    question: 'Which integrations are available?',
+    answer:
+      'PagerDuty, Opsgenie, Slack, Microsoft Teams, GitHub, Linear, Jira, and your observability tools are all supported via open connectors and APIs.',
+  },
+  {
+    question: 'Can we self-host?',
+    answer:
+      'Lanturn.dev is open source-first. We provide deployment guides for your cloud plus managed hosting when you are ready to offload operations.',
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      '“Lanturn.dev gives us the operational maturity of a much larger organisation. Incidents close faster because everyone is working from the same source of truth.”',
+    name: 'Avery Chen',
+    role: 'CTO, Meridian Labs',
+  },
+  {
+    quote: '“The automation around follow-ups alone paid for the rollout. Our teams now treat incident reviews as growth, not paperwork.”',
+    name: 'Jonas Patel',
+    role: 'Head of Platform, RelayScale',
+  },
+];
+
+const productChips = ['Incident Response', 'Onboarding', 'Code Review', 'On Call', 'Status Pages'];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="en" class="bg-background">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Lanturn.dev unifies developer productivity and live service management across the entire DevOps lifecycle."
+    />
+    <title>Lanturn.dev — Operate every service with conviction</title>
+  </head>
+  <body class="bg-background text-contrast">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="relative overflow-hidden border-b border-border/60 bg-surface">
+      <div class="absolute inset-0 -z-10 bg-hero-grid"></div>
+      <div class="layout-wrapper">
+        <div class="flex items-center justify-between gap-4 py-6">
+          <a href="#top" class="flex items-center gap-3 text-contrast" aria-label="Lanturn.dev home">
+            <span class="flex h-10 w-10 items-center justify-center rounded-2xl border border-border/70 bg-background text-lg font-semibold text-primary-500">∎</span>
+            <span class="flex flex-col">
+              <span class="text-sm font-semibold">Lanturn.dev</span>
+              <span class="text-xs text-muted">Open operations platform</span>
+            </span>
+          </a>
+          <nav class="hidden items-center gap-10 text-sm font-medium text-muted md:flex" aria-label="Primary">
+            {navLinks.map((link) => (
+              <a href={link.href} class="transition-colors duration-200 hover:text-primary-500">{link.name}</a>
+            ))}
+          </nav>
+          <div class="hidden md:flex">
+            <a class="btn-secondary" href="#cta">Request access</a>
+          </div>
+          <details class="relative md:hidden">
+            <summary class="flex cursor-pointer items-center gap-2 rounded-full border border-border/70 bg-background/90 px-4 py-2 text-sm font-semibold text-contrast/80 shadow-sm">
+              Menu
+              <span aria-hidden="true" class="text-base text-primary-500">▾</span>
+            </summary>
+            <div class="absolute right-0 mt-3 w-60 rounded-2xl border border-border/70 bg-surface p-4 shadow-lg">
+              <nav aria-label="Mobile" class="space-y-4 text-sm font-medium text-contrast/80">
+                {navLinks.map((link) => (
+                  <a href={link.href} class="block rounded-lg px-3 py-2 transition-colors duration-200 hover:bg-primary-50 hover:text-primary-500">{link.name}</a>
+                ))}
+              </nav>
+              <a class="btn-primary mt-4 w-full justify-center" href="#cta">Request access</a>
+            </div>
+          </details>
+        </div>
+        <section class="relative grid gap-12 pb-16 pt-6 md:grid-cols-[1.1fr,0.9fr]" id="top">
+          <div class="space-y-8">
+            <div class="badge w-fit">Beta access for startup & scale-up teams</div>
+            <h1 class="text-4xl font-semibold leading-tight text-contrast sm:text-5xl md:text-6xl">
+              One command centre for the developer operations lifecycle.
+            </h1>
+            <p class="max-w-xl text-base text-muted sm:text-lg">
+              Lanturn.dev bundles open source tools for productivity, incident response, and service health into one cohesive platform built for high-velocity teams. Lead with confidence, even in the dark.
+            </p>
+            <div class="flex flex-col gap-4 sm:flex-row">
+              <a class="btn-primary" href="#cta">Book a product tour</a>
+              <a class="btn-secondary" href="#incident-response">Explore Incident Response</a>
+            </div>
+            <dl class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+              {stats.map((item) => (
+                <div class="rounded-2xl border border-border/60 bg-surface p-4">
+                  <dt class="text-xs uppercase tracking-[0.24em] text-muted/80">{item.label}</dt>
+                  <dd class="mt-2 text-2xl font-semibold text-contrast">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div class="relative">
+            <div class="rounded-[2rem] border border-border/60 bg-background p-6 shadow-card">
+              <div class="mb-4 flex items-center justify-between rounded-2xl border border-border/60 bg-surface px-4 py-3">
+                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-muted/70">Incident room</span>
+                <span class="text-xs text-muted/70">Active</span>
+              </div>
+              <div class="aspect-[4/3] rounded-[1.5rem] border border-dashed border-border/60 bg-mesh bg-cover bg-center"></div>
+              <p class="mt-5 text-center text-xs uppercase tracking-[0.3em] text-muted">Incident timeline &amp; service map (placeholder)</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="layout-wrapper section" aria-label="Trusted by" id="partners">
+        <div class="text-center text-xs font-semibold uppercase tracking-[0.24em] text-muted/70">Trusted by resilient teams</div>
+        <div class="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4 md:gap-10">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div class="flex h-16 items-center justify-center rounded-2xl border border-border/60 bg-surface text-sm font-semibold text-muted/80">
+              Placeholder #{index + 1}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section" id="incident-response">
+        <div class="layout-wrapper grid gap-10 md:grid-cols-[1.15fr,0.85fr] md:items-start">
+          <div class="space-y-6">
+            <div class="eyebrow">Incident Response</div>
+            <h2 class="section-heading mx-0 max-w-2xl text-left md:text-5xl">Respond with clarity. Learn without friction.</h2>
+            <p class="section-description mx-0 max-w-2xl text-left">
+              The first product in the Lanturn.dev suite orchestrates every stage of an incident. Connect alerts, coordinate responders, and evolve your operating playbook with every response.
+            </p>
+            <div class="space-y-6">
+              {benefits.map((benefit) => (
+                <article class="card" role="listitem">
+                  <h3 class="text-xl font-semibold text-contrast">{benefit.title}</h3>
+                  <p class="mt-3 text-sm text-muted sm:text-base">{benefit.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div class="card space-y-5">
+            <h3 class="text-lg font-semibold text-contrast">Incident response playbook</h3>
+            <p class="text-sm text-muted">
+              Build reusable workflows that turn chaos into repeatable excellence. Every action syncs across chat, tickets, and change logs automatically.
+            </p>
+            <ul class="space-y-3 text-sm text-muted">
+              {incidentPlaybook.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary-50 text-xs font-semibold text-primary-500">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="rounded-2xl border border-dashed border-border/60 bg-background p-5 text-xs uppercase tracking-[0.3em] text-muted/70">
+              Coming soon — extend the model across onboarding, code review, on-call, and status pages.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="layout-wrapper section" id="workflow">
+        <h2 class="section-heading">How it works</h2>
+        <p class="section-description">
+          Harmonise tooling across the DevOps lifecycle. Lanturn.dev becomes the connective tissue between your people, processes, and platforms.
+        </p>
+        <div class="grid gap-6 md:grid-cols-3">
+          {workflow.map((step, index) => (
+            <div class="card h-full">
+              <span class="badge mb-4">Step {index + 1}</span>
+              <h3 class="text-xl font-semibold text-contrast">{step.title}</h3>
+              <p class="mt-3 text-sm text-muted sm:text-base">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section bg-surface" id="upcoming">
+        <div class="layout-wrapper">
+          <div class="eyebrow mb-4">Platform roadmap</div>
+          <h2 class="section-heading mx-0 max-w-2xl text-left md:text-left">One suite, every ritual.</h2>
+          <p class="section-description mx-0 max-w-2xl text-left">
+            Incident Response is just the beginning. Each module is built from the same design system and open APIs so your developers stay in flow as you scale.
+          </p>
+          <div class="grid gap-6 md:grid-cols-2">
+            {upcomingTools.map((tool) => (
+              <div class="card flex h-full flex-col justify-between gap-4 border-dashed border-border/60">
+                <div>
+                  <h3 class="text-lg font-semibold text-contrast">{tool.name}</h3>
+                  <p class="mt-2 text-sm text-muted">{tool.description}</p>
+                </div>
+                <span class="text-xs font-semibold uppercase tracking-[0.24em] text-primary-400">Coming soon</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="layout-wrapper section" id="pricing">
+        <h2 class="section-heading">Pricing built around partnership</h2>
+        <p class="section-description">
+          We are in active beta with forward-thinking engineering leaders. Let’s design the right engagement for your team and future roadmap together.
+        </p>
+        <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+          <div class="card">
+            <div class="badge mb-4">Beta</div>
+            <h3 class="text-2xl font-semibold text-contrast">Contact us</h3>
+            <p class="mt-4 text-sm text-muted sm:text-base">
+              Tailored onboarding, dedicated success engineering, and early influence on new modules. Pricing scales with usage and support requirements.
+            </p>
+            <ul class="mt-6 space-y-3 text-sm text-muted">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary-50 text-xs font-semibold text-primary-500">✓</span>
+                <span>Hands-on implementation and migration support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary-50 text-xs font-semibold text-primary-500">✓</span>
+                <span>Priority roadmap access and design partnership</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary-50 text-xs font-semibold text-primary-500">✓</span>
+                <span>Secure managed hosting or self-hosting guides</span>
+              </li>
+            </ul>
+            <a class="btn-primary mt-8 w-full justify-center" href="#cta">Talk to us</a>
+          </div>
+          <div class="card bg-background">
+            <h3 class="text-lg font-semibold text-contrast">What you get</h3>
+            <ul class="mt-4 space-y-4 text-sm text-muted sm:text-base">
+              <li>
+                <span class="font-medium text-contrast">Unified command centre:</span> bring alerts, collaboration, and code into one actionable workspace.
+              </li>
+              <li>
+                <span class="font-medium text-contrast">Open foundation:</span> extend via APIs, embed dashboards, and build custom automations without vendor lock-in.
+              </li>
+              <li>
+                <span class="font-medium text-contrast">Security by design:</span> enterprise SSO, audit trails, and regional data residency controls baked in from day one.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-surface" id="testimonials">
+        <div class="layout-wrapper">
+          <h2 class="section-heading">Platform leaders are already on board</h2>
+          <p class="section-description">Hear from the people shaping our roadmap.</p>
+          <div class="grid gap-6 md:grid-cols-2">
+            {testimonials.map((testimonial) => (
+              <figure class="card">
+                <blockquote class="text-base text-contrast/90">{testimonial.quote}</blockquote>
+                <figcaption class="mt-6 text-sm text-muted">
+                  <span class="font-semibold text-contrast">{testimonial.name}</span>
+                  <span class="block text-xs uppercase tracking-[0.24em] text-muted/70">{testimonial.role}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="layout-wrapper section" id="faq">
+        <h2 class="section-heading">Questions we hear from CTOs</h2>
+        <p class="section-description">
+          No spin—just clarity on how Lanturn.dev accelerates modern operations.
+        </p>
+        <div class="mx-auto max-w-4xl space-y-4">
+          {faqs.map((faq) => (
+            <details class="group rounded-3xl border border-border/60 bg-surface p-6 shadow-sm">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 text-left text-base font-semibold text-contrast">
+                {faq.question}
+                <span aria-hidden="true" class="flex h-8 w-8 items-center justify-center rounded-full bg-primary-50 text-xl text-primary-500 transition-transform duration-200 group-open:rotate-45">+</span>
+              </summary>
+              <p class="mt-4 text-sm text-muted sm:text-base">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section class="section bg-surface" id="cta">
+        <div class="layout-wrapper">
+          <div class="grid items-center gap-10 rounded-[2.5rem] border border-border/60 bg-background p-10 shadow-glow lg:grid-cols-[1.2fr,0.8fr]">
+            <div class="space-y-6">
+              <div class="badge w-fit">Beta access</div>
+              <h2 class="text-3xl font-semibold leading-tight text-contrast sm:text-4xl">Operate every service with conviction.</h2>
+              <p class="max-w-xl text-base text-muted sm:text-lg">
+                Tell us about your platform team and we will craft a personalised walkthrough of the Incident Response module and the roadmap for the Lanturn.dev suite.
+              </p>
+              <ul class="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-muted/80">
+                {productChips.map((chip) => (
+                  <li class="rounded-full border border-border/70 bg-surface px-4 py-2">{chip}</li>
+                ))}
+              </ul>
+            </div>
+            <form class="card bg-surface p-8 shadow-card" aria-label="Request beta access">
+              <label class="block text-xs font-semibold uppercase tracking-[0.24em] text-muted/70" for="email">Work email</label>
+              <input
+                id="email"
+                type="email"
+                required
+                placeholder="you@company.com"
+                class="mt-3 w-full rounded-2xl border border-border/70 bg-background px-4 py-3 text-sm text-contrast transition duration-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-200/60"
+              />
+              <label class="mt-6 block text-xs font-semibold uppercase tracking-[0.24em] text-muted/70" for="team-size">Team size</label>
+              <select
+                id="team-size"
+                class="mt-3 w-full appearance-none rounded-2xl border border-border/70 bg-background px-4 py-3 text-sm text-contrast transition duration-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-200/60"
+              >
+                <option value="1-10">1 - 10 engineers</option>
+                <option value="11-25">11 - 25 engineers</option>
+                <option value="26-75">26 - 75 engineers</option>
+                <option value="76+">76+ engineers</option>
+              </select>
+              <label class="mt-6 block text-xs font-semibold uppercase tracking-[0.24em] text-muted/70" for="message">What should we prepare?</label>
+              <textarea
+                id="message"
+                rows="4"
+                placeholder="Share your priorities for 2025..."
+                class="mt-3 w-full rounded-2xl border border-border/70 bg-background px-4 py-3 text-sm text-contrast transition duration-200 focus:border-primary-400 focus:ring-2 focus:ring-primary-200/60"
+              ></textarea>
+              <button type="submit" class="btn-primary mt-6 w-full justify-center">Request beta access</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="layout-wrapper section border-t border-border/60 text-sm text-muted/80">
+      <div class="flex flex-col gap-6 text-center sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <span class="font-semibold text-contrast">Lanturn.dev</span>
+          <p class="text-xs uppercase tracking-[0.24em] text-muted/70">Open source by Bit Zesty</p>
+        </div>
+        <p>© 2025 Bit Zesty Ltd. Trading as Lanturn.dev. All rights reserved.</p>
+        <nav class="flex justify-center gap-6 text-xs font-semibold uppercase tracking-[0.24em]" aria-label="Footer">
+          <a href="#partners" class="text-muted/70 transition hover:text-primary-500">Partners</a>
+          <a href="#upcoming" class="text-muted/70 transition hover:text-primary-500">Roadmap</a>
+          <a href="#cta" class="text-muted/70 transition hover:text-primary-500">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
 </html>
